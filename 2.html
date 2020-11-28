@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jawaban nomor 2</title>
+    <style>
+        input[type="text" i] {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            background: #DBEAFE;
+            border: none;
+            border-radius: 8px;
+        }
+        
+        .container {
+            background: #fff;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: auto;
+            margin-bottom: 80px;
+            margin-top: 80px;
+            height: auto;
+            padding: 20px;
+            box-shadow: 0 3px 6px -1px rgb(0 0 0 / 0.3);
+            text-align: center;
+        }
+        
+        button {
+            cursor: pointer;
+            background: #1D4ED8;
+            border-style: solid;
+            width: 105px;
+            padding: 10px;
+            border-radius: 8px;
+            border-color: #1d4ed8;
+            border-width: 1px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .hasil {
+            padding: 16px;
+            background: #eee;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 30px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+
+        <div class="hasil">
+            <span id="hasilArray">
+            Hasil array disini
+        </span>
+        </div>
+        <span>Masukkan Array disini</span>
+        <input type="text" name="bijiArray" id="bijiArray1" maxlength="1" value="a" />
+        <input type="text" name="bijiArray" id="bijiArray2" maxlength="1" value="b" />
+        <input type="text" name="bijiArray" id="bijiArray3" maxlength="1" value="c" />
+        <input type="text" name="bijiArray" id="bijiArray4" maxlength="1" value="d" />
+        <input type="text" name="bijiArray" id="bijiArray5" maxlength="1" value="e" />
+        <button onclick="pushArray()">Pusshhh</button>
+        <button onclick="putarArray()">putar</button>
+    </div>
+</body>
+
+<script>
+    let id = document.getElementById('hasilArray');
+    let baArray = [];
+
+    function pushArray() {
+        baArray.splice(0, baArray.length);
+        let ba1 = document.getElementById('bijiArray1').value;
+        let ba2 = document.getElementById('bijiArray2').value;
+        let ba3 = document.getElementById('bijiArray3').value;
+        let ba4 = document.getElementById('bijiArray4').value;
+        let ba5 = document.getElementById('bijiArray5').value;
+        baArray.push(ba1);
+        baArray.push(ba2);
+        baArray.push(ba3);
+        baArray.push(ba4);
+        baArray.push(ba5);
+        console.log(baArray);
+        id.innerText = "Array yang kamu masukkan adalah [" + baArray + "]";
+    }
+
+    function putarArray() {
+        id.innerText = "";
+        for (let i = 0; i < 4; i++) {
+            for (let i = 1; i < baArray.length; i++) {
+                const element = baArray[i + 1];
+                let hasil = document.getElementById('hasilArray');
+                baArray.splice(0, 0, baArray.pop());
+            }
+
+            id.innerText += "Putaran ke " + (parseInt(i) + parseInt(1)) + ": [ " + baArray + " ]\n";
+            console.log(baArray);
+        }
+    }
+</script>
+
+</html>
